@@ -31,6 +31,7 @@ jobs:
         ls ./media-autobuild_suite/build
 
     - name: Copy build configuration files 
+      continue-on-error: true
       run: |
         Copy-Item  "./ffmpeg_options.txt" -Destination "./media-autobuild_suite/build/" /Y
         Copy-Item  "./mpv_options.txt" -Destination "./media-autobuild_suite/build/" /Y
@@ -38,13 +39,9 @@ jobs:
 
     - name: Debug 
       run: | 
-        echo "ls'
         ls
-        echo "ls ./media-autobuild_suite'
         ls ./media-autobuild_suite
-        echo "ls ./media-autobuild_suite/build'
         ls ./media-autobuild_suite/build
-
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
       working-directory: media-autobuild_suite
