@@ -42,8 +42,9 @@ jobs:
         ls
         ls ./media-autobuild_suite
         ls ./media-autobuild_suite/build
+        
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
       working-directory: media-autobuild_suite
       run: |
-        call media-autobuild_suite.bat.
+        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow
