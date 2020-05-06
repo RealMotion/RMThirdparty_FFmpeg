@@ -32,9 +32,9 @@ jobs:
 
     - name: Copy build configuration files 
       run: |
-        COPY ./ffmpeg_options.txt ./media-autobuild_suite/build/ffmpeg_options.txt /Y
-        COPY ./mpv_options.txt ./media-autobuild_suite/build/mpv_options.txt /Y
-        COPY ./media-autobuild_suite.ini ./media-autobuild_suite/build/media-autobuild_suite.ini /Y
+        Copy-Item  "./ffmpeg_options.txt" -Destination "./media-autobuild_suite/build/" /Y
+        Copy-Item  "./mpv_options.txt" -Destination "./media-autobuild_suite/build/" /Y
+        Copy-Item  "./media-autobuild_suite.ini" -Destination "./media-autobuild_suite/build/" /Y
 
     - name: Debug 
       run: | 
