@@ -33,9 +33,9 @@ jobs:
     - name: Copy build configuration files 
       continue-on-error: true
       run: |
-        Copy-Item  "ffmpeg_options.txt" -Destination "media-autobuild_suite/build/" /Y
-        Copy-Item  "mpv_options.txt" -Destination "media-autobuild_suite/build/" /Y
-        Copy-Item  "media-autobuild_suite.ini" -Destination "media-autobuild_suite/build/" /Y
+        Copy-Item  "./ffmpeg_options.txt" -Destination "./media-autobuild_suite/build/"
+        Copy-Item  "./mpv_options.txt" -Destination "./media-autobuild_suite/build/"
+        Copy-Item  "./media-autobuild_suite.ini" -Destination "./media-autobuild_suite/build/"
 
     - name: Debug 
       run: | 
