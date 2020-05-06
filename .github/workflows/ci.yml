@@ -1,0 +1,55 @@
+name: RMThirdparty_FFmpeg
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+    paths-ignore: 'README'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2019
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Runs a single command using the runners shell
+    - name: Setup
+      run: git clone https://github.com/m-ab-s/media-autobuild_suite.git media-autobuild_suite
+
+    - name: Debug 
+      run: | 
+        echo "ls'
+        ls
+        echo "ls ./media-autobuild_suite'
+        ls ./media-autobuild_suite
+        echo "ls ./media-autobuild_suite/build'
+        ls ./media-autobuild_suite/build
+
+    - name: Copy build configuration files 
+      run: |
+        XCOPY ffmpeg_options.txt ./media-autobuild_suite/build/ /I /Y
+        XCOPY mpv_options.txt ./media-autobuild_suite/build/ /I /Y
+        XCOPY media-autobuild_suite.ini ./media-autobuild_suite/build/ /I /Y
+
+    - name: Debug 
+      run: | 
+        echo "ls'
+        ls
+        echo "ls ./media-autobuild_suite'
+        ls ./media-autobuild_suite
+        echo "ls ./media-autobuild_suite/build'
+        ls ./media-autobuild_suite/build
+
+    # Runs a set of commands using the runners shell
+    - name: Build FFmpeg
+      working-directory: media-autobuild_suite
+      run: |
+        call media-autobuild_suite.bat.
