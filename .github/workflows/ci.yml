@@ -22,15 +22,12 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Setup
-      run: git clone https://github.com/m-ab-s/media-autobuild_suite.git media-autobuild_suite
+      run: git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git
 
     - name: Debug 
       run: | 
-        echo "ls'
         ls
-        echo "ls ./media-autobuild_suite'
         ls ./media-autobuild_suite
-        echo "ls ./media-autobuild_suite/build'
         ls ./media-autobuild_suite/build
 
     - name: Copy build configuration files 
