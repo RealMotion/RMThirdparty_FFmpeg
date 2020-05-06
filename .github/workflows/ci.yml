@@ -5,7 +5,7 @@ name: RMThirdparty_FFmpeg
 on:
   push:
     branches: [ master ]
-    paths-ignore: 'README'
+    paths-ignore: 'README.md'
 
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -35,9 +35,9 @@ jobs:
 
     - name: Copy build configuration files 
       run: |
-        XCOPY ffmpeg_options.txt ./media-autobuild_suite/build/ /I /Y
-        XCOPY mpv_options.txt ./media-autobuild_suite/build/ /I /Y
-        XCOPY media-autobuild_suite.ini ./media-autobuild_suite/build/ /I /Y
+        COPY ./ffmpeg_options.txt ./media-autobuild_suite/build/ffmpeg_options.txt /Y
+        COPY ./mpv_options.txt ./media-autobuild_suite/build/mpv_options.txt /Y
+        COPY ./media-autobuild_suite.ini ./media-autobuild_suite/build/media-autobuild_suite.ini /Y
 
     - name: Debug 
       run: | 
