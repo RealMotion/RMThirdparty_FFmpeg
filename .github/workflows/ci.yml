@@ -34,7 +34,7 @@ jobs:
     
     - name: Setup B
       working-directory: ./mab
-      run: git reset --hard b148baeec3f71fe38933fb79c7b555e0d07ef7ab
+      run: git reset --hard 9495e7d611655991257c07ebf2ed68ee40291f04
 
     - name: Debug 
       run: | 
