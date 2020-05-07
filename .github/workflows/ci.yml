@@ -33,7 +33,7 @@ jobs:
       run: git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
     
     - name: Setup B
-      run: git reset --hard b148baeec3f71fe38933fb79c7b555e0d07ef7ab
+      run: git reset --hard b148bae
 
     - name: Debug 
       run: | 
