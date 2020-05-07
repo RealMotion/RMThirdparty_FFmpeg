@@ -30,12 +30,10 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Setup A
-      run: |
-        git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
-        git reset --hard b148baeec3f71fe38933fb79c7b555e0d07ef7ab
+      run: git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
     
     - name: Setup B
-      run: |
+      run: git reset --hard b148baeec3f71fe38933fb79c7b555e0d07ef7ab
 
     - name: Debug 
       run: | 
