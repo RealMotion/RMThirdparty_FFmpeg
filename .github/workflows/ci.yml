@@ -42,7 +42,17 @@ jobs:
         ls
         ls ./mab
         ls ./mab/build
-        
+
+    - name: Setup Msys2 environment
+      uses: numworks/setup-msys2@v1
+      with:
+        # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
+        msystem: MINGW64
+        # Default value for MSYS2_PATH_TYPE environment variable: strict, inherit or minimal
+        path-type: strict
+        # Update MSYS2 installation through pacman
+        update: true
+
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
       working-directory: mab
