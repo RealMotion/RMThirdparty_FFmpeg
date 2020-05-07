@@ -22,29 +22,29 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Setup
-      run: git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git
+      run: git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git ./mab
 
     - name: Debug 
       run: | 
         ls
-        ls ./media-autobuild_suite
-        ls ./media-autobuild_suite/build
+        ls ./mab
+        ls ./mab/build
 
     - name: Copy build configuration files 
       continue-on-error: true
       run: |
-        Copy-Item  "./ffmpeg_options.txt" -Destination "./media-autobuild_suite/build/"
-        Copy-Item  "./mpv_options.txt" -Destination "./media-autobuild_suite/build/"
-        Copy-Item  "./media-autobuild_suite.ini" -Destination "./media-autobuild_suite/build/"
+        Copy-Item  "./ffmpeg_options.txt" -Destination "./mab/build/"
+        Copy-Item  "./mpv_options.txt" -Destination "./mab/build/"
+        Copy-Item  "./media-autobuild_suite.ini" -Destination "./mab/build/"
 
     - name: Debug 
       run: | 
         ls
-        ls ./media-autobuild_suite
-        ls ./media-autobuild_suite/build
+        ls ./mab
+        ls ./mab/build
         
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
-      working-directory: media-autobuild_suite
+      working-directory: mab
       run: |
         Start-Process media-autobuild_suite.bat -Wait -NoNewWindow
