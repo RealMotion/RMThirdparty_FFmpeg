@@ -30,7 +30,9 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Setup
-      run: git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git ./mab
+      run: |
+        git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git ./mab
+        git reset --hard b148baeec3f71fe38933fb79c7b555e0d07ef7ab
 
     - name: Debug 
       run: | 
