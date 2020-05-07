@@ -20,6 +20,14 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: Cache
+      uses: actions/cache@v1.1.2
+      with:
+        # A directory to store and save the cache
+        path: ./mab
+        # An explicit key for restoring and saving the cache
+        key: 'media_autobuild_suite_cache'
+
     # Runs a single command using the runners shell
     - name: Setup
       run: git clone --depth 1 https://github.com/m-ab-s/media-autobuild_suite.git ./mab
@@ -42,16 +50,6 @@ jobs:
         ls
         ls ./mab
         ls ./mab/build
-
-    - name: Setup Msys2 environment
-      uses: numworks/setup-msys2@v1
-      with:
-        # Variant of the environment to set by default: MSYS, MINGW32 or MINGW64
-        msystem: MINGW64
-        # Default value for MSYS2_PATH_TYPE environment variable: strict, inherit or minimal
-        path-type: strict
-        # Update MSYS2 installation through pacman
-        update: true
 
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
