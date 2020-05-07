@@ -46,5 +46,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
       working-directory: mab
+      shell: cmd
       run: |
-        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow
+        call media-autobuild_suite.bat
+        #Start-Process media-autobuild_suite.bat -Wait -NoNewWindow
