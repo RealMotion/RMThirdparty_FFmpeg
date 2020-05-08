@@ -29,18 +29,12 @@ jobs:
         key: 'mediaAutobuildAuiteCache'
 
     # Runs a single command using the runners shell
-    - name: Setup A
+    - name: Setup
       if: steps.GitCloneCache.outputs.cache-hit != 'true'
       run: |
         git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
         cd ./mab
         git reset --hard 9495e7d611655991257c07ebf2ed68ee40291f04
-
-    - name: Debug 
-      run: | 
-        ls
-        ls ./mab
-        ls ./mab/build
 
     - name: Copy build configuration files 
       run: |
@@ -59,5 +53,4 @@ jobs:
       working-directory: mab
       continue-on-error: true
       run: |
-        Start-Process media-autobuild_suite.bat 
-        # -Wait -NoNewWindow
+        call media-autobuild_suite.bat
