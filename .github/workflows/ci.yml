@@ -59,4 +59,5 @@ jobs:
     - name: Build FFmpeg
       working-directory: mab
       run: |
-        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow
+        Start-Process media-autobuild_suite.bat 
+        # -Wait -NoNewWindow
