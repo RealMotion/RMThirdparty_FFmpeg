@@ -54,4 +54,4 @@ jobs:
       working-directory: mab
       continue-on-error: true
       run: |
-        Start-Process media-autobuild_suite.bat -Wait
+        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow -Verb RunAs -PassThru
