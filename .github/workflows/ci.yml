@@ -20,21 +20,21 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Cache
+    - name: GitCloneCache
       uses: actions/cache@v1.1.2
       with:
         # A directory to store and save the cache
         path: ./mab
         # An explicit key for restoring and saving the cache
-        key: 'media_autobuild_suite_cache'
+        key: 'mediaAutobuildAuiteCache'
 
     # Runs a single command using the runners shell
     - name: Setup A
-      run: git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
-    
-    - name: Setup B
-      working-directory: ./mab
-      run: git reset --hard 9495e7d611655991257c07ebf2ed68ee40291f04
+      if: steps.GitCloneCache.outputs.cache-hit != 'true'
+      run: |
+        git clone https://github.com/m-ab-s/media-autobuild_suite.git ./mab
+        cd ./mab
+        git reset --hard 9495e7d611655991257c07ebf2ed68ee40291f04
 
     - name: Debug 
       run: | 
