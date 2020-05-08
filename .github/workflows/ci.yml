@@ -51,7 +51,7 @@ jobs:
 
     # Runs a set of commands using the runners shell
     - name: Build FFmpeg
-      working-directory: mab
+      working-directory: ./mab
       continue-on-error: true
       run: |
-        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow -Verb RunAs -PassThru
+        Start-Process media-autobuild_suite.bat -Wait -NoNewWindow -PassThru
